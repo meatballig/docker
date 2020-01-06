@@ -11,3 +11,7 @@ sudo usermod -aG docker имяпользователя
 sudo service docker restart
 Добавление какого-либо пользователя в группу docker равносильно предоставлению ему прав суперпользователя root.
 Вы должны помнить о влиянии этого  действия на безопасность.
+
+sudo groupadd docker
+sudo gpasswd -a $USER docker
+newgrp docker
