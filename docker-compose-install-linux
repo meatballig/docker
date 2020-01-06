@@ -1,0 +1,13 @@
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+docker-compose --version
+
+Поскольку по умолчанию для запуска Docker требуются привилегии суперпользователя, необходимо вводить все команды с префиксом sudo. Ситуацию можно исправить, добавив нужного пользователя в группу docker:
+sudo usermod -aG docker имяпользователя
+Здесь будет создана группа docker, если она не существовала ранее, и в эту группу добавляется текущий пользователь.
+Кроме того, потребуется перезапустить сервис Docker:
+sudo service docker restart
+Добавление какого-либо пользователя в группу docker равносильно предоставлению ему прав суперпользователя root.
+Вы должны помнить о влиянии этого  действия на безопасность.
