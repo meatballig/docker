@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  mysql:
+    image: mariadb
+    restart: always
+    volumes:
+    - ./databases:/var/lib/mysql
+    - ./schema.sql:/docker-entrypoint-inidb.d/schema.sql:ro
+    environment:
+    - MYSQL_ROOT_PASSWORD=password
+    ports:
+    - "3307:3306"
+  mailserver:
+    image: 'dkadevelop/mailserver:latest'
+    volumes:
+      - ./exim/exim4.conf:/etc/exim4/exim4.conf
+      - ./dovecot/dovecot.conf:/etc/dovecot/dovecot.conf
+      - ./dovecot/dovecto-sql.conf:/etc/dovecot/dovecot-sql.conf
+      - ./vmail:/var/vmail
+    ports:
+    - '143:143'
+    - '110:110'
+    - '25:25'
+    - '8087:80'
+    command: /usr/bin/supervisord
+    tty: true
+    stdin_open: true
+
