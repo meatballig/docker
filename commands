@@ -41,6 +41,5 @@ docker run c25e4720d302/myapp_cowsay cowsay "Hello-world"   запуск с об
 docker login -u "myusername" -p "mypassword" docker.io   указать лог и пасс
 docker push myusername/myimage:0.0.1                     указать наименование
 
-
-
-
+docker build -t c25e4720d302/myapp_cowsay . 
+используя файл Dockerfile с инструкциями в текущей дериктории сбилдить образ 
