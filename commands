@@ -1,0 +1,39 @@
+docker ps -a 
+отображение списка всех контейнеров
+docker ps (example)
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+29128f81cfab        mariadb             "docker-entrypoint.s…"   16 hours ago        Up 16 hours         0.0.0.0:3307->3306/tcp   root_mysql_1
+2a7927af7a00        ubuntu              "bash"                   24 hours ago        Up 37 minutes                                suspicious_ganguly
+
+
+
+docker start <контейнер> 
+docker stop <контейнер>
+
+docker inspect <name container>  информация о контейнере
+
+docker inspect suspicious_ganguly | grep IPAddress  фильтрация инфы
+
+docker run --name myubuntu -it ubuntu bash  можно задать свое имя контейнера
+
+docker diff <conteiner> посмотреть список измененных файлов в контейнере
+
+docker logs <conteiner> логи контейнера, не удаляется при выходе из контейнера
+
+docker rm <conteiner> удаление 
+
+docker ps -aq -f status=exited    все остановленные контейнеры
+
+docker rm -v $(docker ps -aq -f status=exited)    удаление всех остановленных контейнеров
+
+docker run -d httpd     запуск в фоне (-d) apache (по умолчанию порт 80)
+
+docker run -d -p 8000:80 httpd  проброс портов (8000 хост машины:80 внутри контейнера)
+
+docker run -it --name myapp --hostname myhost ubuntu bash (запуск контейнера с именем хоста)
+
+
+
+
+
+
