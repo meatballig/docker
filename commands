@@ -20,7 +20,8 @@ docker diff <conteiner> посмотреть список измененных �
 
 docker logs <conteiner> логи контейнера, не удаляется при выходе из контейнера
 
-docker rm <conteiner> удаление 
+docker rm <conteiner> удаление контейнера
+docker rmi <image>   удаление образа (docker images просмотр всех образов)
 
 docker ps -aq -f status=exited    все остановленные контейнеры
 
@@ -32,7 +33,13 @@ docker run -d -p 8000:80 httpd  проброс портов (8000 хост ма�
 
 docker run -it --name myapp --hostname myhost ubuntu bash (запуск контейнера с именем хоста)
 
+docker commit myapp c25e4720d302/myapp_cowsay  коммит образа image
 
+docker run c25e4720d302/myapp_cowsay cowsay "Hello-world"   запуск с образа 
+
+залить образ в публичный репозиторий
+docker login -u "myusername" -p "mypassword" docker.io   указать лог и пасс
+docker push myusername/myimage:0.0.1                     указать наименование
 
 
 
