@@ -1,0 +1,2 @@
+docker run --name mysqlserver -e MYSQL_ROOT_PASSWORD=123456 -d mariadb  (скачивание образа mariadb с рут паролей 123456)
+docker run --link mysqlserver:db -p 8080:8080 adminer      (подключение к другому контейнеру мариядб adminer ом)
