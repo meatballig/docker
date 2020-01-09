@@ -43,3 +43,7 @@ docker push myusername/myimage:0.0.1                     указать наим
 
 docker build -t c25e4720d302/myapp_cowsay . 
 используя файл Dockerfile с инструкциями в текущей дериктории сбилдить образ 
+
+docker history <image> просмотр истории образа
+
+
